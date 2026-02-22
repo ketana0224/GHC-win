@@ -93,10 +93,10 @@ async function shutdownCopilot() {
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 980,
-    height: 760,
-    minWidth: 780,
-    minHeight: 560,
+    width: 971,
+    height: 752,
+    minWidth: 971,
+    minHeight: 752,
     autoHideMenuBar: true,
     webPreferences: {
       preload: join(__dirname, "preload.cjs"),
