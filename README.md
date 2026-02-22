@@ -22,6 +22,49 @@ npm install
 copilot auth login
 ```
 
+## Node.js 22 への更新手順（Windows）
+
+### 1) いまのバージョン確認
+
+```bash
+node -v
+```
+
+`v22.x.x` 以上なら更新不要です。
+
+### 2) winget で更新（推奨）
+
+```powershell
+winget upgrade OpenJS.NodeJS
+```
+
+未インストールの場合は:
+
+```powershell
+winget install OpenJS.NodeJS
+```
+
+### 3) nvm-windows を使う場合
+
+```powershell
+nvm install 22
+nvm use 22
+```
+
+### 4) 再確認
+
+```bash
+node -v
+npm -v
+```
+
+その後、プロジェクトで以下を実行:
+
+```bash
+npm install
+npm run chat
+```
+
 ## 使い方
 
 ### チャットを起動
