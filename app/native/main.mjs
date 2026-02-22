@@ -81,9 +81,10 @@ function createWindow() {
     minWidth: 780,
     minHeight: 560,
     webPreferences: {
-      preload: join(__dirname, "preload.mjs"),
+      preload: join(__dirname, "preload.cjs"),
       contextIsolation: true,
       nodeIntegration: false,
+      sandbox: false,
     },
   });
 

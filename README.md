@@ -123,7 +123,7 @@ npm config get https-proxy
 ## ファイル構成
 
 - `app/native/main.mjs`: Electronメインプロセス（Copilot SDK連携）
-- `app/native/preload.mjs`: IPCブリッジ
+- `app/native/preload.cjs`: IPCブリッジ
 - `app/native/index.html`: ネイティブ画面
 - `docs/install-uninstall.md`: インストール/アンインストール手順
 - `docs/spec-01.md`: 要件

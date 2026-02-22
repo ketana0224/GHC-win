@@ -60,6 +60,11 @@
         const value = prompt.value.trim();
         if (!value) return;
 
+        if (!window.nativeApi || typeof window.nativeApi.sendMessage !== "function") {
+          append("System", "エラー: ネイティブ連携APIの初期化に失敗しました。アプリを再起動してください。");
+          return;
+        }
+
         append("You", value);
         prompt.value = "";
         send.disabled = true;
