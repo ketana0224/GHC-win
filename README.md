@@ -83,6 +83,20 @@ npm run dist:win
 
 MSIインストーラーを生成します。生成物は `dist` フォルダに出力されます。
 
+PowerShell で `proxyconnect tcp: dial tcp :0` が出る環境では、次を実行してからビルドしてください:
+
+```powershell
+$env:NO_PROXY='*'
+$env:no_proxy='*'
+$env:HTTP_PROXY=''
+$env:HTTPS_PROXY=''
+$env:ALL_PROXY=''
+$env:http_proxy=''
+$env:https_proxy=''
+$env:all_proxy=''
+npm run dist:win
+```
+
 ### MSIビルドでネットワークエラーが出る場合
 
 `proxyconnect tcp: dial tcp :0` が出る場合は、環境のプロキシ設定が不正です。
