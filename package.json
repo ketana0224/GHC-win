@@ -21,7 +21,7 @@
   },
   "build": {
     "appId": "com.ghc.win",
-    "productName": "GHC-win",
+    "productName": "GHCwin",
     "files": [
       "app/native/**/*",
       "node_modules/**/*",
@@ -29,8 +29,17 @@
     ],
     "win": {
       "signAndEditExecutable": false,
+      "executableName": "GHCwin",
       "target": [
         "msi"
+      ]
+    },
+    "msi": {
+      "createDesktopShortcut": false,
+      "createStartMenuShortcut": false,
+      "warningsAsErrors": false,
+      "additionalLightArgs": [
+        "-sval"
       ]
     }
   }
