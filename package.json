@@ -1,0 +1,20 @@
+{
+  "name": "ghc-win",
+  "version": "1.0.0",
+  "description": "Windows環境での検証用リポジトリです。",
+  "main": "app/copilot-chat.mjs",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "chat": "node app/copilot-chat.mjs",
+    "start": "npm run chat",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@github/copilot-sdk": "^0.1.25"
+  }
+}

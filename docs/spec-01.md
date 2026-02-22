@@ -1,0 +1,3 @@
+- windowsアプリを作る
+- 軽量なチャットアプリ
+- Github Copilot SDK で Guthub Copilotを利用できる
