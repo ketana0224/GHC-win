@@ -73,6 +73,11 @@ async function runChat() {
       output.write(`Copilot > ${getAssistantText(response)}\n\n`);
     }
   } catch (error) {
+    if (error instanceof Error && error.message === "readline was closed") {
+      output.write("\nチャットを終了しました。\n");
+      return;
+    }
+
     output.write("\nCopilot 接続に失敗しました。\n");
     output.write("- Node.js 22+ を利用しているか\n");
     output.write("- GitHub Copilot が利用可能なアカウントでログイン済みか\n");
