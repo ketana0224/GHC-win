@@ -125,6 +125,7 @@ npm config get https-proxy
 - `app/native/main.mjs`: Electronメインプロセス（Copilot SDK連携）
 - `app/native/preload.mjs`: IPCブリッジ
 - `app/native/index.html`: ネイティブ画面
+- `docs/install-uninstall.md`: インストール/アンインストール手順
 - `docs/spec-01.md`: 要件
 - `docs/spec-02.md`: GUI要件
 - `run.bat`: Windows向け起動スクリプト
