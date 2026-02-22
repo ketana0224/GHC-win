@@ -1,6 +1,7 @@
-import { app, BrowserWindow, ipcMain, dialog } from "electron";
+import { app, BrowserWindow, ipcMain, dialog, Menu } from "electron";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { existsSync } from "node:fs";
 import { CopilotClient } from "@github/copilot-sdk";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -9,6 +10,22 @@ const __dirname = dirname(__filename);
 let mainWindow;
 let client;
 let session;
+
+function resolveCopilotClientOptions() {
+  const copilotLoader = join(process.cwd(), "node_modules", "@github", "copilot", "npm-loader.js");
+  const windowsNode = "C:\\Program Files\\nodejs\\node.exe";
+
+  if (process.platform === "win32" && existsSync(windowsNode) && existsSync(copilotLoader)) {
+    return {
+      cliPath: windowsNode,
+      cliArgs: [copilotLoader],
+      cwd: process.cwd(),
+      logLevel: "error",
+    };
+  }
+
+  return { logLevel: "error" };
+}
 
 function ensureSupportedNodeVersion() {
   const major = Number(process.versions.node.split(".")[0]);
@@ -50,7 +67,7 @@ function getAssistantText(responseEvent) {
 
 async function setupCopilot() {
   ensureSupportedNodeVersion();
-  client = new CopilotClient({ logLevel: "error" });
+  client = new CopilotClient(resolveCopilotClientOptions());
   await client.start();
   session = await client.createSession();
 }
@@ -80,6 +97,7 @@ function createWindow() {
     height: 760,
     minWidth: 780,
     minHeight: 560,
+    autoHideMenuBar: true,
     webPreferences: {
       preload: join(__dirname, "preload.cjs"),
       contextIsolation: true,
@@ -108,6 +126,7 @@ ipcMain.handle("chat:send", async (_event, prompt) => {
 
 app.whenReady()
   .then(async () => {
+    Menu.setApplicationMenu(null);
     createWindow();
 
     app.on("activate", () => {
