@@ -1,3 +1,4 @@
 - windowsターミナルではなく、GUIアプリを作る
 - GUIアプリはWebブラウザではなく、windowsネイティブアプリ
 - ブラウザではなく、windowsにinstallするネイティブアプリ
+- InstallerはMSIで作る

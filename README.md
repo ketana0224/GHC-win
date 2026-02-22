@@ -81,7 +81,7 @@ npm run native
 npm run dist:win
 ```
 
-生成物は `dist` フォルダに出力されます。
+MSIインストーラーを生成します。生成物は `dist` フォルダに出力されます。
 
 ### チャット操作
 
