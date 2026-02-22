@@ -2,13 +2,14 @@
   "name": "ghc-win",
   "version": "1.0.0",
   "description": "Windows環境での検証用リポジトリです。",
-  "main": "app/copilot-chat.mjs",
+  "main": "app/native/main.mjs",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "chat": "node app/copilot-chat.mjs",
-    "start": "npm run chat",
+    "native": "electron app/native/main.mjs",
+    "start": "npm run native",
+    "dist:win": "electron-builder --win nsis",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -16,5 +17,23 @@
   "license": "ISC",
   "dependencies": {
     "@github/copilot-sdk": "^0.1.25"
+  },
+  "devDependencies": {
+    "electron": "^35.3.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.ghc.win",
+    "productName": "GHC-win",
+    "files": [
+      "app/native/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    }
   }
 }

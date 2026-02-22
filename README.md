@@ -1,10 +1,10 @@
 # GHC-win
 
-Windows向けの軽量チャットアプリです。GitHub Copilot SDK を使って、ターミナル上で Copilot と対話できます。
+Windows向けの軽量ネイティブチャットアプリです。GitHub Copilot SDK を使って、ブラウザ不要で Copilot と対話できます。
 
 ## 目的
 
-- Windowsアプリ（軽量チャット）の実装
+- Windowsネイティブアプリ（インストール可能）の実装
 - GitHub Copilot SDK の利用
 
 ## セットアップ
@@ -62,7 +62,7 @@ npm -v
 
 ```bash
 npm install
-npm run chat
+npm run native
 ```
 
 ## 使い方
@@ -70,19 +70,30 @@ npm run chat
 ### チャットを起動
 
 ```bash
-npm run chat
+npm run native
 ```
 
 または Windows では `run.bat` をダブルクリック。
 
+### Windowsインストーラー作成
+
+```bash
+npm run dist:win
+```
+
+生成物は `dist` フォルダに出力されます。
+
 ### チャット操作
 
-- 通常のテキスト入力: Copilot へ送信
-- `/help`: ヘルプ表示
-- `/exit`: 終了
+- テキスト入力して「送信」
+- `Ctrl+Enter` でも送信
+- 「クリア」で表示をリセット
 
 ## ファイル構成
 
-- `app/copilot-chat.mjs`: Copilot SDK を使った軽量チャット本体
+- `app/native/main.mjs`: Electronメインプロセス（Copilot SDK連携）
+- `app/native/preload.mjs`: IPCブリッジ
+- `app/native/index.html`: ネイティブ画面
 - `docs/spec-01.md`: 要件
+- `docs/spec-02.md`: GUI要件
 - `run.bat`: Windows向け起動スクリプト

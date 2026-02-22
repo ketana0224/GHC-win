@@ -1,0 +1,3 @@
+- windowsターミナルではなく、GUIアプリを作る
+- GUIアプリはWebブラウザではなく、windowsネイティブアプリ
+- ブラウザではなく、windowsにinstallするネイティブアプリ
