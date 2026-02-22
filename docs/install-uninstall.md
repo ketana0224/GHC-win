@@ -41,8 +41,10 @@ msiexec /i "GHCwin 1.0.0.msi" /qn
 1. 製品コード確認:
 
 ```powershell
-Get-WmiObject Win32_Product | Where-Object { $_.Name -like "GHCwin*" } | Select-Object Name, IdentifyingNumber
+Get-Package -Name "GHCwin*" | Select-Object Name, FastPackageReference
 ```
+
+`FastPackageReference` に表示される `{...}` が製品コード（GUID）です。
 
 2. アンインストール実行（`{PRODUCT-CODE}` を置換）:
 

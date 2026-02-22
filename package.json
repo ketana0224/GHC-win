@@ -29,6 +29,7 @@
     ],
     "win": {
       "signAndEditExecutable": false,
+      "icon": "build/icon.ico",
       "executableName": "GHCwin",
       "target": [
         "msi"
@@ -36,7 +37,8 @@
     },
     "msi": {
       "createDesktopShortcut": false,
-      "createStartMenuShortcut": false,
+      "createStartMenuShortcut": true,
+      "shortcutName": "GHCwin",
       "warningsAsErrors": false,
       "additionalLightArgs": [
         "-sval"
