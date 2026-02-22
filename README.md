@@ -83,6 +83,23 @@ npm run dist:win
 
 MSIインストーラーを生成します。生成物は `dist` フォルダに出力されます。
 
+### MSIビルドでネットワークエラーが出る場合
+
+`proxyconnect tcp: dial tcp :0` が出る場合は、環境のプロキシ設定が不正です。
+
+確認コマンド:
+
+```powershell
+Get-ChildItem Env:*proxy*
+npm config get proxy
+npm config get https-proxy
+```
+
+必要なダウンロード先（許可対象）:
+
+- `https://github.com/electron/electron/releases/...`
+- `https://github.com/electron-userland/electron-builder-binaries/releases/...`
+
 ### チャット操作
 
 - テキスト入力して「送信」

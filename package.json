@@ -2,15 +2,15 @@
   "name": "ghc-win",
   "version": "1.0.0",
   "description": "Windows環境での検証用リポジトリです。",
+  "author": "ketana0224",
   "main": "app/native/main.mjs",
   "scripts": {
     "native": "electron app/native/main.mjs",
     "start": "npm run native",
-    "dist:win": "electron-builder --win msi",
+    "dist:win": "electron-builder --win msi --config.electronDist=node_modules/electron/dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "@github/copilot-sdk": "^0.1.25"
